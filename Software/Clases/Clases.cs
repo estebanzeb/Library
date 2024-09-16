@@ -93,20 +93,13 @@ namespace Library.Clases
     public class Libros{
 
         //Atributos
-        private int ID = 0;
-        private int Cod_Libro = 0;
-        private string Titulo = "";
-        private DateTime Año_Publicacion;
-        private int Estado = 0;
-        private int Cant_Copias = 0;
-        private int Categorias=0;
-
-
-        public int ID1 { get => ID; set => ID = value; }
-        public int Cod_Libro1 { get => Cod_Libro; set => Cod_Libro = value; }
-        public string Titulo1 { get => Titulo; set => Titulo = value; }
-        public DateTime Año_Publicacion1 { get => Año_Publicacion; set => Año_Publicacion = value; }
-        public int Cant_Copias1 { get => Cant_Copias; set => Cant_Copias = value; }
+        public int ID { get; set; }
+        public int Cod_Libro { get; set; }
+        public string Titulo { get; set; }
+        public DateTime Año_Publicacion{ get; set; }
+        public bool Estado { get; set; }
+        public int Cant_Copias { get; set; }
+        public int Categoria{ get; set; }
         [ForeignKey("Categorias")] public virtual Categorias? _Categoria { get; set; }
         
         //Construtor
@@ -127,7 +120,7 @@ namespace Library.Clases
     public class Categorias{
 
         //Atributos
-         [Key]  public int ID { get; set; }
+        [Key]  public int ID { get; set; }
         public string Nombre{ get; set; }
         public string Descripcion{ get; set; }
         

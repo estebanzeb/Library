@@ -29,7 +29,7 @@ namespace ConsoleApp.Conexion
         //public DbSet<Autores>? Autores { get; set; }
         //public DbSet<Usuarios>? Usuarios { get; set; }
         public DbSet<Categorias>? CATEGORIAS { get; set; }
-        //public DbSet<Libros>? LIBROS { get; set; }
+        public DbSet<Libros>? LIBROS { get; set; }
         //public DbSet<Libro_Autores>? LIBRO_AUTOR { get; set; }
         //public DbSet<Copias>? COPIAS{ get; set; }
         //public DbSet<Prestamos>? PRESTAMOS { get; set; }
@@ -39,15 +39,27 @@ namespace ConsoleApp.Conexion
 
         public void ObtenerLibros()
         {
-            /*var conexion = new Conexion();
+            var conexion = new Conexion();
             conexion.StringConnection = this.string_conexion;
 
-            var lista_libros = conexion.LIBROS.ToList();
+            var lista_libros = conexion.LIBROS.Include(x => x._Categoria).ToList(); 
 
-            foreach (var Libro in lista_libros)
+            foreach (var Libros in lista_libros)
             {
-                Console.WriteLine(Libro.ID1.ToString() + "|" + Libro.Titulo1);
-            }*/
+                Console.WriteLine(
+                    Libros.ID.ToString() + "|" +
+                    Libros.Cod_Libro + "|" + 
+                    Libros.Titulo + "|" + 
+                    Libros.Año_Publicacion.ToString() + "|" + 
+                    Libros.Estado + "|" + 
+                    Libros.Cant_Copias + "|" + 
+                    Libros.Categoria + "|" +
+                    Libros._Categoria.ID + "|" +
+                    Libros._Categoria.Nombre + "|" +
+                    Libros._Categoria.Descripcion 
+                    + "\n"
+                    );
+            }
         }
 
         public void ObtenerCategoria()
@@ -59,7 +71,11 @@ namespace ConsoleApp.Conexion
 
             foreach (var Categorias in lista_categorias)
             {
-                Console.WriteLine(Categorias.ID.ToString() + "|" + Categorias.Nombre + "|" + Categorias.Descripcion);
+                Console.WriteLine(
+                    Categorias.ID.ToString() + "|" + 
+                    Categorias.Nombre + "|" + 
+                    Categorias.Descripcion 
+                    + "\n");
             }
         }
     }

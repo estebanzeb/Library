@@ -11,5 +11,5 @@ Console.WriteLine(au.Cedula1);*/
 
 var conexionEF = new ConexionEF();
 //conexionEF.GuardarPeliculas();
-conexionEF.ObtenerCategoria();
+conexionEF.ObtenerCategorias();
 conexionEF.ObtenerLibros();

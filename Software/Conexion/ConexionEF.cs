@@ -62,7 +62,7 @@ namespace ConsoleApp.Conexion
             }
         }
 
-        public void ObtenerCategoria()
+        public void ObtenerCategorias()
         {
             var conexion = new Conexion();
             conexion.StringConnection = this.string_conexion;

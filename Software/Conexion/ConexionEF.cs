@@ -42,8 +42,8 @@ namespace ConsoleApp.Conexion
             var conexion = new Conexion();
             conexion.StringConnection = this.string_conexion;
 
-            var lista_libros = conexion.LIBROS.Include(x => x._Categoria).ToList(); 
-
+            var lista_libros = conexion.LIBROS.Include(x =>x._Categoria).ToList(); 
+            Console.WriteLine( "LISTA LIBROS\n");
             foreach (var Libros in lista_libros)
             {
                 Console.WriteLine(
@@ -56,8 +56,8 @@ namespace ConsoleApp.Conexion
                     Libros.Categoria + "|" +
                     Libros._Categoria.ID + "|" +
                     Libros._Categoria.Nombre + "|" +
-                    Libros._Categoria.Descripcion 
-                    + "\n"
+                    Libros._Categoria.Descripcion +
+                    "\n"
                     );
             }
         }
@@ -69,6 +69,7 @@ namespace ConsoleApp.Conexion
 
             var lista_categorias = conexion.CATEGORIAS.ToList();
 
+            Console.WriteLine( "LISTA CATEGORIAS\n");
             foreach (var Categorias in lista_categorias)
             {
                 Console.WriteLine(

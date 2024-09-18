@@ -11,4 +11,8 @@ Console.WriteLine(au.Cedula1);*/
 
 var conexionEF = new ConexionEF();
 conexionEF.ObtenerPersonas();
-//conexionEF.ObtenerLibros();
+conexionEF.ObtenerUsuarios();
+conexionEF.ObtenerLibros();
+conexionEF.ObtenerCopias();
+conexionEF.ObtenerPrestamo();
+conexionEF.ObtenerDetalles();

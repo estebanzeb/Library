@@ -26,57 +26,50 @@ namespace ConsoleApp.Conexion
                 optionsBuilder.UseSqlServer(this.StringConnection!, p => { });//El tipo de base de datos que vamos vincular, "!" no va a ser NULL
                 optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);//Instancia de SQL server para la base de datos
             }
-        //public DbSet<Autores>? Autores { get; set; }
-        //public DbSet<Usuarios>? Usuarios { get; set; }
-        public DbSet<Categorias>? CATEGORIAS { get; set; }
-        public DbSet<Libros>? LIBROS { get; set; }
-        //public DbSet<Libro_Autores>? LIBRO_AUTOR { get; set; }
-        //public DbSet<Copias>? COPIAS{ get; set; }
-        //public DbSet<Prestamos>? PRESTAMOS { get; set; }
-        //public DbSet<Detalles>? DETALLES { get; set; 
+            public DbSet<Personas>? PERSONAS { get; set; }
+            //public DbSet<Usuarios>? Usuarios { get; set; }
+            public DbSet<Libros>? LIBROS { get; set; }
+            //public DbSet<Libro_Autores>? LIBRO_AUTOR { get; set; }
+            //public DbSet<Copias>? COPIAS{ get; set; }
+            //public DbSet<Prestamos>? PRESTAMOS { get; set; }
+            //public DbSet<Detalles>? DETALLES { get; set;
+            //public DbSet<Autores>? AUTORES { get; set; }
+            //public DbSet<Categorias>? CATEGORIAS { get; set; } 
         }
         
-
-        public void ObtenerLibros()
-        {
+        public void ObtenerPersonas(){
             var conexion = new Conexion();
             conexion.StringConnection = this.string_conexion;
 
-            var lista_libros = conexion.LIBROS.Include(x =>x._Categoria).ToList(); 
-            Console.WriteLine( "LISTA LIBROS\n");
-            foreach (var Libros in lista_libros)
+            var lista_personas = conexion.PERSONAS.ToList(); 
+            Console.WriteLine( "LISTA PERSONAS\n");
+            foreach (var Persona in lista_personas)
             {
                 Console.WriteLine(
-                    Libros.ID.ToString() + "|" +
-                    Libros.Cod_Libro + "|" + 
-                    Libros.Titulo + "|" + 
-                    Libros.Año_Publicacion.ToString() + "|" + 
-                    Libros.Estado + "|" + 
-                    Libros.Cant_Copias + "|" + 
-                    Libros.Categoria + "|" +
-                    Libros._Categoria.ID + "|" +
-                    Libros._Categoria.Nombre + "|" +
-                    Libros._Categoria.Descripcion +
+                    Persona.ID.ToString() + "|" +
+                    Persona.Cedula + "|" + 
+                    Persona.Nombre + "|" + 
+                    Persona.Numero + "|" + 
                     "\n"
                     );
             }
         }
-
-        public void ObtenerCategorias()
-        {
+        public void ObtenerLibros(){
             var conexion = new Conexion();
             conexion.StringConnection = this.string_conexion;
 
-            var lista_categorias = conexion.CATEGORIAS.ToList();
-
-            Console.WriteLine( "LISTA CATEGORIAS\n");
-            foreach (var Categorias in lista_categorias)
+            var lista_libros = conexion.LIBROS.ToList(); 
+            Console.WriteLine( "LISTA LIBROS\n");
+            foreach (var Libro in lista_libros)
             {
                 Console.WriteLine(
-                    Categorias.ID.ToString() + "|" + 
-                    Categorias.Nombre + "|" + 
-                    Categorias.Descripcion 
-                    + "\n");
+                    Libro.ID.ToString() + "|" +
+                    Libro.Cod_Libro + "|" + 
+                    Libro.Nombre_Libro + "|" + 
+                    Libro.Año_Publicacion.ToString() + "|" + 
+                    Libro.Autor + "|" + 
+                    "\n"
+                    );
             }
         }
     }

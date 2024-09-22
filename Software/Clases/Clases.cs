@@ -23,7 +23,7 @@ namespace Library.Clases
         [Key]public int? Cod_Usuario{ get; set; }
         public string? Correo{ get; set; }
         public string? Contraseña{ get; set; }
-        public int Persona { get; set; }[ForeignKey("Persona")] public virtual Personas? _Persona { get; set; } 
+        public int Persona { get; set; } [ForeignKey("Persona")] public virtual Personas? _Persona { get; set; } 
     }
 
     /*public class Categorias{
@@ -57,7 +57,7 @@ namespace Library.Clases
         [Key]public int ID { get; set; }   
         public string Notas { get; set; }
         public bool Estado { get; set; }
-        public int Libro { get; set; }  [ForeignKey("Libro")] public virtual Libros? _Libro { get; set; }
+        public int Libro { get; set; } [ForeignKey("Libro")] public virtual Libros? _Libro { get; set; }
     }
 
     public class Prestamos{

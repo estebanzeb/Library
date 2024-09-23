@@ -8,7 +8,6 @@ namespace ConsoleApp.Conexion
         private string string_conexion = "server=DESKTOP-TRRJJFE;database=LIBRARY;Integrated Security=true;TrustServerCertificate=true;";
         // server=localhost;database=db_facturas;uid=sa;pwd=Clas3sPrO2024_!;TrustServerCertificate=true;
         // server=localhost;database=db_facturas;Integrated Security=True;TrustServerCertificate=true;
-        // server=localhost;database=LIBRARY;Integrated Security=True;TrustServerCertificate=true;
         public ConexionEF()
         {
             Console.WriteLine("\n\n CONEXION ENTITY FRAMEWORK A BASE DE DATOS (usted donde tiene esa terminal parquiada)\n");
